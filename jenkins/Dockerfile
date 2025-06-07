@@ -5,6 +5,7 @@ USER root
 # Установка зависимостей
 RUN apt-get update && apt-get install -y \
     git \
+	mc \
     maven \
     curl \
     unzip \
