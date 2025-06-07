@@ -54,10 +54,7 @@ pipeline {
         stage('Install PostgreSQL to TEST') {
             steps {
                 sh """
-                helm repo add bitnami https://charts.bitnami.com/bitnami
-                helm repo update
-
-                helm upgrade --install postgres bitnami/postgresql \\
+				helm install postgres oci://registry-1.docker.io/bitnamicharts/postgresql \\
                   --namespace test --create-namespace \\
                   --set auth.database=${DB_NAME} \\
                   --set auth.username=${DB_USER} \\
